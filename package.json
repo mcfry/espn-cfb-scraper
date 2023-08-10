@@ -12,7 +12,8 @@
     "defensive": "node ./endpoints/defensive.js",
     "passing": "node ./endpoints/passing.js",
     "rushing": "node ./endpoints/rushing.js",
-    "receiving": "node ./endpoints/receiving.js"
+    "receiving": "node ./endpoints/receiving.js",
+    "players": "node ./endpoints/players.js"
   },
   "devDependencies": {
     "eslint": "^8.7.0",

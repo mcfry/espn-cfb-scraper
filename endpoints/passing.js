@@ -11,7 +11,7 @@ const fs = require("fs")
 
 chromium.launch({ headless: true }).then(async browser => {
   const page = await browser.newPage()
-  page.setDefaultTimeout(15000)
+  page.setDefaultTimeout(30000)
 
   console.log("Fetching espn passing page, sorted yards desc")
   await page.goto(
