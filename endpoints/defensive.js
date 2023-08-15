@@ -12,7 +12,7 @@ const fs = require("fs")
 
 chromium.launch({ headless: true }).then(async browser => {
   const page = await browser.newPage()
-  page.setDefaultTimeout(30000)
+  page.setDefaultTimeout(60000)
 
   console.log("Fetching espn defensive page, sorted desc by tackles")
   await page.goto(
@@ -43,15 +43,15 @@ chromium.launch({ headless: true }).then(async browser => {
         tableData[name] = []
         for (let j = 0; j < colCount; j++) {
           // Select the jth <td> in the ith <tr> of second/inner table
-          tableData[name].push(
-            await page
-              .locator("tbody.Table__TBODY:nth-child(7)")
-              .locator("tr")
-              .nth(i)
-              .locator("td")
-              .nth(j)
-              .innerText()
-          )
+          const data = await page
+            .locator("tbody.Table__TBODY:nth-child(7)")
+            .locator("tr")
+            .nth(i)
+            .locator("td")
+            .nth(j)
+            .innerText()
+
+          tableData[name].push(data.replace(/,/g, ""))
         }
       } catch (error) {
         return false
@@ -63,7 +63,7 @@ chromium.launch({ headless: true }).then(async browser => {
 
   let pageNumber = 0
   console.log("Scraping page 1")
-  while (pageNumber < 50 && (await fetchPage(pageNumber))) {
+  while (pageNumber < 80 && (await fetchPage(pageNumber))) {
     try {
       await page
         .locator(

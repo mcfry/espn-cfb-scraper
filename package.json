@@ -13,7 +13,8 @@
     "passing": "node ./endpoints/passing.js",
     "rushing": "node ./endpoints/rushing.js",
     "receiving": "node ./endpoints/receiving.js",
-    "players": "node ./endpoints/players.js"
+    "players": "node ./endpoints/players.js",
+    "projections": "node ./endpoints/projections.js"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
