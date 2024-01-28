@@ -11,7 +11,7 @@ const fs = require("fs")
 
 chromium.launch({ headless: true }).then(async browser => {
   const page = await browser.newPage()
-  page.setDefaultTimeout(60000)
+  page.setDefaultTimeout(150000)
 
   console.log("Fetching espn players by team")
   await page.goto("https://www.espn.com/college-football/teams", {
@@ -105,7 +105,9 @@ chromium.launch({ headless: true }).then(async browser => {
         }
       }
 
-      page.goBack()
+      console.log(`Done ${confLookup[conferenceIndex][0]} Team - ${teamName}`)
+
+      await page.goBack()
       await page.waitForLoadState("load")
     }
   }
