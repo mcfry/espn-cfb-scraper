@@ -14,7 +14,8 @@
     "rushing": "node ./endpoints/rushing.js",
     "receiving": "node ./endpoints/receiving.js",
     "players": "node ./endpoints/players.js",
-    "projections": "node ./endpoints/projections.js"
+    "projections": "node ./endpoints/projections.js",
+    "draft_order": "node ./endpoints/draft_order.js"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
